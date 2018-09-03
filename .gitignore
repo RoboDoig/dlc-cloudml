@@ -1,4 +1,7 @@
 venv/
 test_data/
+models/
 *.iml
 *.xml
+*.pyc
+*.HNB228-4-SHIRES
