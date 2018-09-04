@@ -123,11 +123,6 @@ def train(flags):
 
     display_iters = cfg.display_iters
 
-    # DEBUG
-    display_iters = 100
-    max_iter = 1000
-    cfg.save_iters = 100
-
     cum_loss = 0.0
     lr_gen = LearningRate(cfg)
 
