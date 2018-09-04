@@ -1,7 +1,8 @@
 from setuptools import find_packages
 from setuptools import setup
 
-REQUIRED_PACKAGES = ['easydict>=1.7']
+REQUIRED_PACKAGES = ['easydict>=1.7',
+                     'Pillow>=5.2.0']
 
 setup(
     name='trainer',
