@@ -120,7 +120,8 @@ def train(flags):
 
     max_iter = int(cfg.multi_step[-1][1])
 
-    display_iters = cfg.display_iters
+    # display_iters = cfg.display_iters
+    display_iters = 10
     cum_loss = 0.0
     lr_gen = LearningRate(cfg)
 
@@ -131,7 +132,6 @@ def train(flags):
         cum_loss += loss_val
         train_writer.add_summary(summary, it)
 
-        print(it)
         if it % display_iters == 0:
             average_loss = cum_loss / display_iters
             cum_loss = 0.0

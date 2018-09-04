@@ -1,4 +1,4 @@
-2018-09-03 15:32:26 Config:
+2018-09-04 14:04:11 Config:
 {'all_joints': [[0], [1], [2], [3]],
  'all_joints_names': ['hand', 'Finger1', 'Finger2', 'Joystick'],
  'batch_size': 1,
@@ -43,5 +43,5 @@
  'weigh_only_present_joints': False,
  'weigh_part_predictions': False,
  'weight_decay': 0.0001}
-2018-09-03 15:32:33 Restoring parameters from ../models/pretrained/resnet_v1_50.ckpt
-2018-09-03 15:32:36 iteration: 0 loss: 0.0010 lr: 0.005
+2018-09-04 14:04:19 Restoring parameters from ../models/pretrained/resnet_v1_50.ckpt
+2018-09-04 14:04:25 iteration: 0 loss: 0.0009 lr: 0.005
