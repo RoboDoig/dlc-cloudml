@@ -44,6 +44,11 @@ if __name__ == '__main__':
         help='Directory to find inital weights',
         default='../models/'
     )
+    parser.add_argument(
+        '--log_dir',
+        help='Directory to find inital weights',
+        default='log'
+    )
 
     FLAGS, unparsed = parser.parse_known_args()
     tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)

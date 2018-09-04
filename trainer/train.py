@@ -106,6 +106,7 @@ def train(flags):
 
     coord, thread = start_preloading(sess, enqueue_op, dataset, placeholders)
 
+    cfg.log_dir = flags.log_dir
     train_writer = tf.summary.FileWriter(cfg.log_dir, sess.graph)
 
     learning_rate, train_op = get_optimizer(total_loss, cfg)
@@ -121,7 +122,8 @@ def train(flags):
     max_iter = int(cfg.multi_step[-1][1])
 
     # display_iters = cfg.display_iters
-    display_iters = 10
+    display_iters = 100
+    max_iter = 1000
     cum_loss = 0.0
     lr_gen = LearningRate(cfg)
 
