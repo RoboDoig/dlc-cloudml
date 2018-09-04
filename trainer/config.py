@@ -3,6 +3,8 @@ import pprint
 import logging
 
 import yaml
+import tensorflow as tf
+from tensorflow.python.lib.io import file_io
 from easydict import EasyDict as edict
 
 from trainer import default_config
@@ -37,7 +39,7 @@ def _merge_a_into_b(a, b):
 def cfg_from_file(filename):
     """Load a config from file filename and merge it into the default options.
     """
-    with open(filename, 'r') as f:
+    with file_io.FileIO(filename, 'r') as f:
         yaml_cfg = edict(yaml.load(f))
 
     _merge_a_into_b(yaml_cfg, cfg)
