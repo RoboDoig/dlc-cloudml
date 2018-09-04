@@ -1,6 +1,7 @@
 venv/
 test_data/
 models/
+trainer/log/
 *.iml
 *.xml
 *.pyc

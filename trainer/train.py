@@ -121,9 +121,13 @@ def train(flags):
 
     max_iter = int(cfg.multi_step[-1][1])
 
-    # display_iters = cfg.display_iters
+    display_iters = cfg.display_iters
+
+    # DEBUG
     display_iters = 100
     max_iter = 1000
+    cfg.save_iters = 100
+
     cum_loss = 0.0
     lr_gen = LearningRate(cfg)
 
@@ -142,7 +146,8 @@ def train(flags):
 
         # Save snapshot
         if (it % cfg.save_iters == 0 and it != 0) or it == max_iter:
-            model_name = cfg.snapshot_prefix
+            # model_name = cfg.snapshot_prefix
+            model_name = os.path.join(flags.log_dir, 'snapshot')
             saver.save(sess, model_name, global_step=it)
 
     train_writer.close()

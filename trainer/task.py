@@ -47,7 +47,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--log_dir',
         help='Directory to find inital weights',
-        default='log'
+        default='./log'
     )
 
     FLAGS, unparsed = parser.parse_known_args()
