@@ -6,6 +6,8 @@ from enum import Enum
 import numpy as np
 from numpy import array as arr
 from numpy import concatenate as cat
+import tensorflow as tf
+from tensorflow.python.lib.io import file_io
 
 import scipy.io as sio
 from scipy.misc import imread, imresize
@@ -60,7 +62,8 @@ class PoseDataset:
         cfg = self.cfg
         file_name = cfg.dataset
         # Load Matlab file dataset annotation
-        mlab = sio.loadmat(file_name)
+        with file_io.FileIO(file_name, 'r') as f:
+            mlab = sio.loadmat(f)
         self.raw_data = mlab
         mlab = mlab['dataset']
 
