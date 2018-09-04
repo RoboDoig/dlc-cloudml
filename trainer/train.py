@@ -131,6 +131,7 @@ def train(flags):
         cum_loss += loss_val
         train_writer.add_summary(summary, it)
 
+        print(it)
         if it % display_iters == 0:
             average_loss = cum_loss / display_iters
             cum_loss = 0.0
