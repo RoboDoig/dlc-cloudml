@@ -62,7 +62,9 @@ class PoseDataset:
         cfg = self.cfg
         file_name = cfg.dataset
         # Load Matlab file dataset annotation
-        mlab = sio.loadmat(file_name)
+        # mlab = sio.loadmat(file_name)
+        with file_io.FileIO(file_name, 'rb') as f:
+            mlab = sio.loadmat(f)
         self.raw_data = mlab
         mlab = mlab['dataset']
 
