@@ -6,10 +6,10 @@ import tensorflow as tf
 import tensorflow.contrib.slim as slim
 
 from trainer.config import load_config
-from trainer.dataset.factory import create as create_dataset
 from trainer.nnet.net_factory import pose_net
 from trainer.nnet.pose_net import get_batch_spec
 from trainer.util.logging import setup_logging
+from trainer.dataset.factory import create as create_dataset
 
 
 class LearningRate(object):
