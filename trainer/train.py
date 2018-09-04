@@ -127,7 +127,6 @@ def train(flags):
     cum_loss = 0.0
     lr_gen = LearningRate(cfg)
 
-    print('initialising training loop')
     for it in range(max_iter+1):
         current_lr = lr_gen.get_lr(it)
         [_, loss_val, summary] = sess.run([train_op, total_loss, merged_summaries],
@@ -146,6 +145,7 @@ def train(flags):
             model_name = cfg.snapshot_prefix
             saver.save(sess, model_name, global_step=it)
 
+    train_writer.close()
     sess.close()
     coord.request_stop()
     coord.join([thread])
