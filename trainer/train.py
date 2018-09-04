@@ -125,6 +125,7 @@ def train(flags):
     cum_loss = 0.0
     lr_gen = LearningRate(cfg)
 
+    print('initialising training loop')
     for it in range(max_iter+1):
         current_lr = lr_gen.get_lr(it)
         [_, loss_val, summary] = sess.run([train_op, total_loss, merged_summaries],
