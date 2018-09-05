@@ -32,9 +32,13 @@ def evaluate(flags):
     with file_io.FileIO(os.path.join(data_folder, data_file), 'rb') as f:
         data, train_indices, test_indices, __ignore__ = pickle.load(f)
 
-    with file_io.FileIO(os.path.join(data_folder, 'data-' + flags.task,
-                          'CollectedData_' + flags.scorer + '.h5'), 'rb') as f:
-        pd_data = pd.read_hdf(StringIO(f))
+    file_stream = file_io.FileIO(os.path.join(data_folder, 'data-' + flags.task,
+                                 'CollectedData_' + flags.scorer + '.h5'), 'r')
+    pd_data = pd.read_hdf(file_stream.read())
+
+    # with file_io.FileIO(os.path.join(data_folder, 'data-' + flags.task,
+    #                       'CollectedData_' + flags.scorer + '.h5'), 'rb') as f:
+    #     pd_data = pd.read_hdf(StringIO(f))
 
     # load and setup CNN part detector #
     cfg['init_weights'] = os.path.join(flags.job_dir, flags.snapshot)
