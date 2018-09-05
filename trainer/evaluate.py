@@ -32,13 +32,12 @@ def evaluate(flags):
     with file_io.FileIO(os.path.join(data_folder, data_file), 'rb') as f:
         data, train_indices, test_indices, __ignore__ = pickle.load(f)
 
-    file_stream = file_io.FileIO(os.path.join(data_folder, 'data-' + flags.task,
-                                 'CollectedData_' + flags.scorer + '.h5'), 'rb')
-    pd_data = pd.read_hdf(file_stream.read())
+    # pd_data = pd.read_hdf(os.path.join(data_folder, 'data-' + flags.task,
+    #                       'CollectedData_' + flags.scorer + '.h5'))
 
-    # with file_io.FileIO(os.path.join(data_folder, 'data-' + flags.task,
-    #                       'CollectedData_' + flags.scorer + '.h5'), 'rb') as f:
-    #     pd_data = pd.read_hdf(StringIO(f))
+    with file_io.FileIO(os.path.join(data_folder, 'data-' + flags.task,
+                        'CollectedData_' + flags.scorer + '.csv'), 'rb') as f:
+        pd_data = pd.read_csv(f, skiprows=2)
 
     # load and setup CNN part detector #
     cfg['init_weights'] = os.path.join(flags.job_dir, flags.snapshot)
@@ -56,6 +55,7 @@ def evaluate(flags):
 
     # compute predictions over images
     for image_index, image_name in tqdm(enumerate(pd_data.index)):
+        image_name = pd_data.values[image_index][0]
         image = io.imread(os.path.join(data_folder, 'data-' + flags.task, image_name), mode='RGB')
         image = skimage.color.gray2rgb(image)
         image_batch = data_to_input(image)
@@ -77,3 +77,4 @@ def evaluate(flags):
     data_machine = pd.DataFrame(predict_data, columns=index, index=pd_data.index.values)
     data_machine.to_hdf(os.path.join(flags.job_dir, dlc_scorer + '.h5'),
                         'df_with_missing', format='table', mode='w')
+
