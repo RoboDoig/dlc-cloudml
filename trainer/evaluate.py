@@ -1,6 +1,7 @@
 import os
 import pickle
 import pandas as pd
+from pandas.compat import StringIO
 import numpy as np
 from tqdm import tqdm
 from skimage import io
@@ -33,7 +34,7 @@ def evaluate(flags):
 
     with file_io.FileIO(os.path.join(data_folder, 'data-' + flags.task,
                           'CollectedData_' + flags.scorer + '.h5'), 'rb') as f:
-        pd_data = pd.read_hdf(f)
+        pd_data = pd.read_hdf(StringIO(f))
 
     # load and setup CNN part detector #
     cfg['init_weights'] = os.path.join(flags.job_dir, flags.snapshot)
