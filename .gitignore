@@ -1,5 +1,6 @@
 venv/
 test_data/
+test_job/
 models/
 trainer/log/
 *.iml
