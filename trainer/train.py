@@ -150,6 +150,3 @@ def train(flags):
     coord.request_stop()
     coord.join([thread])
 
-
-if __name__ == '__main__':
-    train()

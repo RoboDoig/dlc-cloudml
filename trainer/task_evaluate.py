@@ -3,13 +3,13 @@ import argparse
 import os
 import sys
 
-from trainer import train
+from trainer import evaluate
 
 FLAGS = None
 
 
 def main(_):
-    train.train(FLAGS)
+    evaluate.evaluate(FLAGS)
 
 
 if __name__ == '__main__':
@@ -40,14 +40,19 @@ if __name__ == '__main__':
         default=1
     )
     parser.add_argument(
-        '--weights_dir',
-        help='Directory to find inital weights',
-        default='../models/'
+        '--scorer',
+        help='Who scored this dataset?',
+        default='Mackenzie'
     )
     parser.add_argument(
-        '--log_dir',
-        help='Directory to save logs',
-        default='./log'
+        '--job_dir',
+        help='Directory for training job output',
+        default='../test_job/'
+    )
+    parser.add_argument(
+        '--snapshot',
+        help='Name of the model snapshot to evaluate',
+        default='snapshot-300000'
     )
 
     FLAGS, unparsed = parser.parse_known_args()
