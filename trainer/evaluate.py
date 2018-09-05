@@ -56,7 +56,8 @@ def evaluate(flags):
     # compute predictions over images
     for image_index, image_name in tqdm(enumerate(pd_data.index)):
         image_name = pd_data.values[image_index][0]
-        image = io.imread(os.path.join(data_folder, 'data-' + flags.task, image_name), mode='RGB')
+        with file_io.FileIO(os.path.join(data_folder, 'data-' + flags.task, image_name), 'rb') as f:
+            image = io.imread(f, mode='RGB')
         image = skimage.color.gray2rgb(image)
         image_batch = data_to_input(image)
 
