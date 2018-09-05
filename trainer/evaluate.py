@@ -76,6 +76,12 @@ def evaluate(flags):
 
     # save results
     data_machine = pd.DataFrame(predict_data, columns=index, index=pd_data.index.values)
-    data_machine.to_hdf(os.path.join(flags.job_dir, dlc_scorer + '.h5'),
-                        'df_with_missing', format='table', mode='w')
+    f_name = os.path.join(flags.job_dir, dlc_scorer + '.csv')
+    print(f_name)
+    # data_machine.to_hdf(os.path.join(flags.job_dir, dlc_scorer + '.h5'),
+    #                     'df_with_missing', format='table', mode='w')
+    with file_io.FileIO(f_name, 'w') as f:
+        data_machine.to_csv(f)
+
+
 
