@@ -3,7 +3,8 @@ from setuptools import setup
 
 REQUIRED_PACKAGES = ['easydict>=1.7',
                      'Pillow>=5.2.0',
-                     'tqdm>=4.25.0']
+                     'tqdm>=4.25.0',
+                     'scikit-image>=0.14.0']
 
 setup(
     name='trainer',
