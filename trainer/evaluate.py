@@ -33,7 +33,7 @@ def evaluate(flags):
         data, train_indices, test_indices, __ignore__ = pickle.load(f)
 
     file_stream = file_io.FileIO(os.path.join(data_folder, 'data-' + flags.task,
-                                 'CollectedData_' + flags.scorer + '.h5'), 'r')
+                                 'CollectedData_' + flags.scorer + '.h5'), 'rb')
     pd_data = pd.read_hdf(file_stream.read())
 
     # with file_io.FileIO(os.path.join(data_folder, 'data-' + flags.task,
