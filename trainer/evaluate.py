@@ -9,15 +9,7 @@ import skimage.color
 from trainer.config import load_config
 from trainer import predict
 from trainer.dataset.pose_dataset import data_to_input
-
-# data_dir = '../test_data/'
-# job_dir = '../test_job/'
-# task = 'reaching'
-# date = 'Jan30'
-# train_fraction = 0.95
-# shuffle = 1
-# scorer = 'Mackenzie'
-# snapshot = 'snapshot-300000'
+from tensorflow.python.lib.io import file_io
 
 
 def evaluate(flags):
@@ -36,7 +28,7 @@ def evaluate(flags):
                + 'shuffle' + str(int(flags.shuffle)) + '.pickle'
 
     # load meta data / i.e. training & test file & labels
-    with open(os.path.join(data_folder, data_file), 'rb') as f:
+    with file_io.FileIO(os.path.join(data_folder, data_file), 'rb') as f:
         data, train_indices, test_indices, __ignore__ = pickle.load(f)
 
     pd_data = pd.read_hdf(os.path.join(data_folder, 'data-' + flags.task,
