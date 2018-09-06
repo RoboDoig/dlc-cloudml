@@ -6,6 +6,7 @@ import numpy as np
 from tqdm import tqdm
 from skimage import io
 import skimage.color
+import pickle
 
 from trainer.config import load_config
 from trainer import predict
@@ -76,12 +77,17 @@ def evaluate(flags):
 
     # save results
     data_machine = pd.DataFrame(predict_data, columns=index, index=pd_data.index.values)
-    f_name = os.path.join(flags.job_dir, dlc_scorer + '.csv')
-    print(f_name)
+    f_name = os.path.join(flags.job_dir, dlc_scorer + '.pickle')
+
     # data_machine.to_hdf(os.path.join(flags.job_dir, dlc_scorer + '.h5'),
     #                     'df_with_missing', format='table', mode='w')
-    with file_io.FileIO(f_name, 'w+') as f:
-        data_machine.to_csv(f)
+
+    # with file_io.FileIO(f_name, 'w') as f:
+    #     data_machine.to_csv(f, mode='w')
+
+    with file_io.FileIO(f_name, 'wb') as f:
+        pickle.dump(data_machine, f)
+
 
 
 
