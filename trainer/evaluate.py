@@ -80,7 +80,7 @@ def evaluate(flags):
     print(f_name)
     # data_machine.to_hdf(os.path.join(flags.job_dir, dlc_scorer + '.h5'),
     #                     'df_with_missing', format='table', mode='w')
-    with file_io.FileIO(f_name, 'w') as f:
+    with file_io.FileIO(f_name, 'wb') as f:
         data_machine.to_csv(f)
 
 
