@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import sys
 
-task = 'pole-whisking/'
+task = 'pole-whisking'
 base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video/'
 scorer = 'Andrew'
 image_type = '.png'
@@ -19,7 +19,7 @@ def to_data_frame():
     ]
     files.sort(key=lambda f: int(''.join(filter(str.isdigit, f))))
 
-    image_address = [base_folder + f for f in files]
+    image_address = [base_folder + 'data-' + task + '/selected/' + f for f in files]
     data_one_folder = pd.DataFrame({'image name': image_address})
 
     frame, Frame = None, None
