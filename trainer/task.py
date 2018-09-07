@@ -22,12 +22,12 @@ if __name__ == '__main__':
     parser.add_argument(
         '--task',
         help='Task name',
-        default='reaching'
+        default='pole-whisking'
     )
     parser.add_argument(
         '--date',
         help='Data date',
-        default='Jan30'
+        default='Sep6'
     )
     parser.add_argument(
         '--train_fraction',
