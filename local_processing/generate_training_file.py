@@ -170,7 +170,7 @@ def generate_training_file():
             auxiliary_functions.attempt_to_make_folder(experiment_name + '/test')
 
             items_to_change = {
-                'dataset': base_folder + '/unaugmented-data-set-' + task + date + '/' + filename_matfile + '.mat',
+                'dataset': '../../' + 'unaugmented-data-set-' + task + date + '/' + filename_matfile + '.mat',
                 'num_joints': len(body_parts),
                 'all_joints': [[i] for i in range(len(body_parts))],
                 'all_joints_names': body_parts
