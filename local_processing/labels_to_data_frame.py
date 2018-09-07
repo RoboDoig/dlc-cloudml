@@ -19,7 +19,8 @@ def to_data_frame():
     ]
     files.sort(key=lambda f: int(''.join(filter(str.isdigit, f))))
 
-    image_address = [base_folder + 'data-' + task + '/selected/' + f for f in files]
+    image_address = ['data-' + task + '/selected/' + f for f in files]
+    # image_address = [base_folder + 'data-' + task + '/selected/' + f for f in files]
     data_one_folder = pd.DataFrame({'image name': image_address})
 
     frame, Frame = None, None

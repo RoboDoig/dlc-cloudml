@@ -17,7 +17,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--data_dir',
         help='Directory to find training data',
-        default='../test_data/'
+        default='C:/Users/shires/DeepLabCutData/cell_01_video'
     )
     parser.add_argument(
         '--task',

@@ -116,8 +116,9 @@ def generate_training_file():
                 H = {}
                 # load image to get dimensions
                 filename = data.index[jj]
-                im = io.imread(filename)
-                H['image'] = filename
+                im = io.imread(os.path.join(base_folder, filename))
+                H['image'] = os.path.join('../../unaugmented-data-set' + task + date + '/',
+                                          filename)
 
                 if np.ndim(im) > 2:
                     H['size'] = np.array(
