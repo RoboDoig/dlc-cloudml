@@ -80,7 +80,7 @@ def generate_base_config(path):
                  'intermediate_supervision': False,
                  'intermediate_supervision_layer': 12,
                  'max_input_size': 1000,
-                 'multi_step': [[0.005, 1000], [0.02, 430000], [0.002, 730000], [0.001, 1030000]],
+                 'multi_step': [[0.001, 10000], [0.001, 430000], [0.001, 730000], [0.001, 1030000]],
                  'display_iters': 1000,
                  'save_iters': 50000}
 

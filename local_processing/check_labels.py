@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from local_processing import auxiliary_functions
 
 colormap = 'cool'
-body_parts = ['pole']
+body_parts = ['pole', 'whiskerbase']
 task = 'pole-whisking'
 base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video/'
 scorer = 'Andrew'
@@ -60,7 +60,7 @@ def check_labels():
         plt.figure(frameon=False, figsize=(w * 1. / 100 * scale, h * 1. / 100 * scale))
         plt.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=0, hspace=0)
 
-        im_index = np.where(np.array(data_combined.index.values) == folder + '/' + image_name)[0]
+        im_index = np.where(np.array(data_combined.index.values) == 'data-' + task + '/selected/' + image_name)[0]
 
         plt.imshow(image, 'bone')
 

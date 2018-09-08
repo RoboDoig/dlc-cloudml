@@ -7,7 +7,7 @@ task = 'pole-whisking'
 base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video/'
 scorer = 'Andrew'
 image_type = '.png'
-body_parts = ['pole']
+body_parts = ['pole', 'whiskerbase']
 invisible_boundary = 10
 
 
