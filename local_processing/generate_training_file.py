@@ -15,7 +15,7 @@ scorer = 'Andrew'
 date = 'Sep6'
 shuffles = [1]
 training_fraction = [0.95]
-body_parts = ['pole']
+body_parts = ['pole', 'whiskerbase']
 
 
 def split_trials(trial_index, train_fraction=0.8):
