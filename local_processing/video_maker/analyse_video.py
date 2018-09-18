@@ -1,0 +1,108 @@
+import os
+import numpy as np
+import pandas as pd
+import time
+import pickle
+
+from trainer.config import load_config
+import trainer.predict as predict
+from moviepy.editor import VideoFileClip
+from skimage.util import img_as_ubyte
+from tqdm import tqdm
+import local_processing.analysis_util.analysis_util as au
+
+base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video/'
+task = 'pole-whisking'
+date = 'Sep6'
+shuffle = 1
+train_fraction = 0.95
+snapshot_index = 0
+video_name = 'AH0698x170601-3.mp4'
+frame_buffer = 10
+
+
+def analyse_video():
+    experiment_name = task + date + '-trainset' + str(
+        int(train_fraction * 100)) + 'shuffle' + str(shuffle)
+    cfg = load_config(os.path.join(base_folder, experiment_name, 'test/pose_cfg.yaml'))
+
+    # get available snapshots
+    snapshots = np.array([
+        fn.split('.')[0] for fn in os.listdir(
+            os.path.join(
+                base_folder, 'trained-results'
+            )
+        ) if 'index' in fn
+    ])
+    increasing_indices = np.argsort([int(m.split('-')[1]) for m in snapshots])
+    snapshots = snapshots[increasing_indices]
+
+    # setup prediction over images
+    cfg['init_weights'] = os.path.join(base_folder, 'trained-results/' + snapshots[snapshot_index])
+
+    training_iterations = (cfg['init_weights'].split('/')[-1].split('-')[-1])
+
+    scorer = 'deep-cut-' + str(cfg['net_type']) + '-' + \
+              str(int(train_fraction * 100)) + 'shuffle' + str(shuffle) + \
+              '-' + str(training_iterations) + '-for-task-' + task
+
+    sess, inputs, outputs = predict.setup_pose_prediction(cfg)
+    pd_index = pd.MultiIndex.from_product(
+        [[scorer], cfg['all_joints_names'], ['x', 'y', 'likelihood']],
+        names=['scorer', 'bodyparts', 'coords']
+    )
+
+    # data definition
+    video = os.path.join(base_folder, video_name)
+
+    # do analysis
+    clip = VideoFileClip(video)
+    ny, nx = clip.size
+    fps = clip.fps
+    n_frames_approx = int(np.ceil(clip.duration * clip.fps) + frame_buffer)
+    n_frames = n_frames_approx
+
+    start = time.time()
+    predict_data = np.zeros((n_frames_approx, 3 * len(cfg['all_joints_names'])))
+    clip.reader.initialize()
+
+    for index in tqdm(range(n_frames_approx)):
+        image = img_as_ubyte(clip.reader.read_frame())
+
+        if index == int(n_frames_approx - frame_buffer * 2):
+            last_image = image
+        elif index > int(n_frames_approx - frame_buffer * 2):
+            if (image == last_image).all():
+                n_frames = index
+                break
+            else:
+                last_image = image
+
+        pose = au.get_pose(image, cfg, inputs, outputs, sess)
+        predict_data[index, :] = pose.flatten()
+
+    stop = time.time()
+
+    dictionary = {
+        'start': start,
+        'stop': stop,
+        'run_duration': stop - start,
+        'scorer': scorer,
+        'config_file': cfg,
+        'fps': fps,
+        'frame_dimensions': (ny, nx),
+        'nframes': n_frames
+    }
+    metadata = {'data': dictionary}
+
+    data_machine = pd.DataFrame(predict_data[:n_frames, :], columns=pd_index, index=range(n_frames))
+    # data_machine.to_csv(os.path.join(base_folder, scorer + video_name.split('.')[0] + '.csv'))
+    data_machine.to_hdf(os.path.join(base_folder, scorer + video_name.split('.')[0] + '.h5'),
+                        'df_with_missin', format='table', mode='w')
+
+    with open(os.path.join(base_folder, scorer + video_name.split('.')[0] + '-metadata' + '.pickle'), 'wb') as f:
+        pickle.dump(metadata, f, pickle.HIGHEST_PROTOCOL)
+
+
+if __name__ == '__main__':
+    analyse_video()

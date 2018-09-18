@@ -77,7 +77,7 @@ def evaluate_model():
 
             dlc_scorer = 'deep-cut-' + str(cfg['net_type']) + '-' + \
                          str(int(train_fraction * 100)) + 'shuffle' + str(shuffle) + \
-                         '-' + str(training_iterations) + 'for-task-' + task
+                         '-' + str(training_iterations) + '-for-task-' + task
 
             index = pd.MultiIndex.from_product(
                 [[dlc_scorer], cfg['all_joints_names'], ['x', 'y', 'likelihood']],
@@ -95,6 +95,9 @@ def evaluate_model():
                                              'trained-results/evaluation',
                                              dlc_scorer + '.h5'),
                                 'df_with_missing', format='table', mode='w')
+            # data_machine.to_csv(os.path.join(base_folder,
+            #                                  'trained-results/evaluation',
+            #                                  dlc_scorer + '.csv'))
 
             print(data_machine)
 
