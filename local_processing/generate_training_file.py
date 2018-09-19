@@ -9,13 +9,13 @@ import scipy.io as sio
 
 from local_processing import auxiliary_functions
 
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_2/'
+base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_3/'
 task = 'pole-whisking'
 scorer = 'Andrew'
 date = 'Sep6'
 shuffles = [1]
 training_fraction = [0.95]
-body_parts = ['pole', 'whisker1', 'whisker2', 'whisker3']
+body_parts = ['pole', 'whisker1', 'whisker2', 'whisker3', 'whisker4']
 
 
 def split_trials(trial_index, train_fraction=0.8):

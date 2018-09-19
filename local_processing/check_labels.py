@@ -7,9 +7,9 @@ import matplotlib.pyplot as plt
 from local_processing import auxiliary_functions
 
 colormap = 'cool'
-body_parts = ['pole', 'whisker1', 'whisker2', 'whisker3']
+body_parts = ['pole', 'whisker1', 'whisker2', 'whisker3', 'whisker4']
 task = 'pole-whisking'
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_2/'
+base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_3/'
 scorer = 'Andrew'
 image_type = '.png'
 scale = 1

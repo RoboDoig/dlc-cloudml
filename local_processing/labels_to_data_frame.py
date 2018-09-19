@@ -4,7 +4,7 @@ import os
 import sys
 
 task = 'pole-whisking'
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_4/'
+base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_3/'
 scorer = 'Andrew'
 image_type = '.png'
 body_parts = ['pole', 'whisker1', 'whisker2', 'whisker3', 'whisker4']

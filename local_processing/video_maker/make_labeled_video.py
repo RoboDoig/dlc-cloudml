@@ -18,7 +18,7 @@ train_fraction = 0.95
 snapshot_index = 0
 video_name = 'AH0698x170601-4.mp4'
 pcutoff = -1
-dotsize = 7
+dotsize = 4
 resnet = 50
 snapshot = 350000
 
