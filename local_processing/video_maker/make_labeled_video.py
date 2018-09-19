@@ -10,17 +10,17 @@ skvideo.setFFmpegPath('C:/Program Files/ffmpeg/bin/')
 from local_processing.video_maker.video_processor import VideoProcessorSK as vp
 import matplotlib.pyplot as plt
 
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video/'
+base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_2/'
 task = 'pole-whisking'
 date = 'Sep6'
 shuffle = 1
 train_fraction = 0.95
 snapshot_index = 0
-video_name = 'AH0698x170601-3.mp4'
+video_name = 'AH0698x170601-4.mp4'
 pcutoff = -1
 dotsize = 7
 resnet = 50
-snapshot = 950000
+snapshot = 350000
 
 
 def create_video(clip, data_frame):

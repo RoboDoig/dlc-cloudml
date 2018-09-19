@@ -11,13 +11,13 @@ from skimage.util import img_as_ubyte
 from tqdm import tqdm
 import local_processing.analysis_util.analysis_util as au
 
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video/'
+base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_2/'
 task = 'pole-whisking'
 date = 'Sep6'
 shuffle = 1
 train_fraction = 0.95
 snapshot_index = 0
-video_name = 'AH0698x170601-3.mp4'
+video_name = 'AH0698x170601-4.mp4'
 frame_buffer = 10
 
 

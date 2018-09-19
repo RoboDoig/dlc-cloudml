@@ -1,4 +1,4 @@
 trainingInput:
   # Use a cluster with many workers and a few parameter servers.
-  scaleTier: BASIC_GPU
+  scaleTier: BASIC_TPU
   pythonVersion: "3.5"

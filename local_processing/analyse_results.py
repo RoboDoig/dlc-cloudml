@@ -8,7 +8,7 @@ from local_processing import auxiliary_functions
 import matplotlib.pyplot as plt
 from skimage import io
 
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video/'
+base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_2/'
 task = 'pole-whisking'
 date = 'Sep6'
 shuffles = [1]
@@ -59,9 +59,10 @@ def analyse_results():
                 test_error_pcutoff = np.nanmean(mse_pcutoff.iloc[test_indices].values.flatten())
                 train_error_pcutoff = np.nanmean(mse_pcutoff.iloc[train_indices].values.flatten())
 
-                print('train error: ', np.round(train_error, 2), 'pixels --- test error: ', np.round(test_error, 2))
+                print('train error: ', np.round(train_error, 2), 'pixels --- test error: ', np.round(test_error, 2),
+                      'pixels')
                 print('train error with cutoff: ', np.round(train_error_pcutoff, 2),
-                      'pixels --- test error with cutoff: ', np.round(test_error_pcutoff, 2))
+                      'pixels --- test error with cutoff: ', np.round(test_error_pcutoff, 2), 'pixels')
 
                 # plotting
                 folder_name = os.path.join(base_folder, 'trained-results/evaluation/labeled')

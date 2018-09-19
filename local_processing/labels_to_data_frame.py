@@ -4,10 +4,10 @@ import os
 import sys
 
 task = 'pole-whisking'
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video/'
+base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_4/'
 scorer = 'Andrew'
 image_type = '.png'
-body_parts = ['pole', 'whiskerbase']
+body_parts = ['pole', 'whisker1', 'whisker2', 'whisker3', 'whisker4']
 invisible_boundary = 10
 
 

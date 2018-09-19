@@ -9,13 +9,13 @@ import scipy.io as sio
 
 from local_processing import auxiliary_functions
 
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video/'
+base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_2/'
 task = 'pole-whisking'
 scorer = 'Andrew'
 date = 'Sep6'
 shuffles = [1]
 training_fraction = [0.95]
-body_parts = ['pole', 'whiskerbase']
+body_parts = ['pole', 'whisker1', 'whisker2', 'whisker3']
 
 
 def split_trials(trial_index, train_fraction=0.8):
@@ -80,7 +80,7 @@ def generate_base_config(path):
                  'intermediate_supervision': False,
                  'intermediate_supervision_layer': 12,
                  'max_input_size': 1000,
-                 'multi_step': [[0.001, 10000], [0.001, 430000], [0.001, 730000], [0.001, 1030000]],
+                 'multi_step': [[0.005, 10000], [0.02, 430000], [0.002, 730000], [0.001, 1030000]],
                  'display_iters': 1000,
                  'save_iters': 50000}
 
