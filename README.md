@@ -8,7 +8,7 @@ The code here is intended to be used where continuous access to a local GPU is n
 This pipeline uses the paid services of Google Cloud, you will need to enable billing and potentially spend money for the cloud based portion of this guide. New accounts get a certain amount of computing time free in the trial period and this pipeline should not exceed this allowance, but do keep in mind that you may eventually be billed by Google for multiple runs. Check the Getting Started Guide for more detailed info: https://cloud.google.com/ml-engine/docs/tensorflow/getting-started-training-prediction 
 
 ## Installation
-Clone the repo and install the dependencies specified in "requirements.txt" in the root folder. You'll need a Google Cloud Platform account as well.
+Clone the repo locally and install the dependencies specified in "requirements.txt" in the root folder. You'll need a Google Cloud Platform account as well.
 
 Note: tested on Windows only
 
@@ -117,3 +117,26 @@ Then clicking "Web preview" --> "Preview on port 8080" in the top right of the s
 If you've made a mistake with your job parameters and the training doesn't crash out, you can cancel the job with:
 
     $ gcloud ml-engine jobs cancel ${JOB_NAME}
+    
+## Usage - Evaluation and Analysis
+### Getting your trained model
+
+As the model runs, snapshots will ocassionaly be stored in the job folder of your storage bucket on Google Cloud. In your video data directory (on local machine) create a folder called "trained-results". In the cloud job folder download 4 files and store them in the "trained-results" folder locally:
+
+- events file (prefix: events.out.tfevents...)
+- snapshot-<iteration>.data
+- snapshot-<iteration>.index
+- snapshot-<iteration>.meta
+    
+### Evaluate and analyse the model
+In local_processing, run "evaluate_model.py", making sure parameters are consisten with previous steps. This will generate a new folder within "trained-results" named "evaluation" which contains the evaluation results.
+
+Next run "analyse_results.py" which will print the training and test error and generate a set of labeled images in "trained-results/evaluation/labeled" showing the original ground truth labels overlaid with the model prediction.
+
+### Track an entire video
+local_processing/video_maker contains tools for running model inference on an entire video. First run "analyse_video.py" with the same parameters as in previous steps. Change video name to refer the the video in the video data directory you want to to track (e.g. "video_1.mp4"). Next run "make_labeled_video.py" with the same parameters, also setting:
+
+- resnet = < int id of the resnet used >
+- snapshot = < int id of the iteration of the downloaded snapshot >
+
+If this works, you should end up with a new video with the suffix "labeled" overlaid with the model predicted positions of the tracked features.
