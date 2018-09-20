@@ -9,7 +9,7 @@ import scipy.io as sio
 
 from local_processing import auxiliary_functions
 
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_3/'
+base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_tut/'
 task = 'pole-whisking'
 scorer = 'Andrew'
 date = 'Sep6'

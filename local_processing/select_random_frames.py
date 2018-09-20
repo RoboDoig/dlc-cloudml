@@ -10,7 +10,7 @@ from skimage import io
 from local_processing import auxiliary_functions, frame_selection_tools
 
 task = 'pole-whisking'
-video_path = 'C:/Users/shires/DeepLabCutData/cell_01_video'
+video_path = 'C:/Users/shires/DeepLabCutData/cell_01_video_tut'
 video_type = '.mp4'
 filename = 'all'
 x1 = 0

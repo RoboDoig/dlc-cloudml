@@ -1,9 +1,9 @@
 venv/
 test_data/
 test_job/
-models/
 trainer/log/
 *.iml
 *.xml
 *.pyc
 *.HNB228-4-SHIRES
+*.ckpt
