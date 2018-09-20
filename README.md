@@ -126,9 +126,9 @@ Note that the scale tier used by the cloud service (e.g. CPU / GPU) is defined i
 As the model runs, snapshots will ocassionaly be stored in the job folder of your storage bucket on Google Cloud. In your video data directory (on local machine) create a folder called "trained-results". In the cloud job folder download 4 files and store them in the "trained-results" folder locally:
 
 - events file (prefix: events.out.tfevents...)
-- snapshot-<iteration>.data
-- snapshot-<iteration>.index
-- snapshot-<iteration>.meta
+- snapshot-< iteration >.data
+- snapshot-< iteration >.index
+- snapshot-< iteration >.meta
     
 ### Evaluate and analyse the model
 In local_processing, run "evaluate_model.py", making sure parameters are consistent with previous steps. This will generate a new folder within "trained-results" named "evaluation" which contains the evaluation results.
