@@ -8,7 +8,7 @@ from local_processing import auxiliary_functions
 import matplotlib.pyplot as plt
 from skimage import io
 
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_2/'
+base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_3/'
 task = 'pole-whisking'
 date = 'Sep6'
 shuffles = [1]

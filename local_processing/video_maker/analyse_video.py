@@ -11,7 +11,7 @@ from skimage.util import img_as_ubyte
 from tqdm import tqdm
 import local_processing.analysis_util.analysis_util as au
 
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_2/'
+base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_3/'
 task = 'pole-whisking'
 date = 'Sep6'
 shuffle = 1

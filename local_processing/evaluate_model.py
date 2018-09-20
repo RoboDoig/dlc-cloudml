@@ -11,7 +11,7 @@ from tqdm import tqdm
 from skimage import io
 import skimage.color
 
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_2/'
+base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_3/'
 task = 'pole-whisking'
 date = 'Sep6'
 shuffles = [1]
