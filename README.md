@@ -131,7 +131,7 @@ As the model runs, snapshots will ocassionaly be stored in the job folder of you
 - snapshot-<iteration>.meta
     
 ### Evaluate and analyse the model
-In local_processing, run "evaluate_model.py", making sure parameters are consisten with previous steps. This will generate a new folder within "trained-results" named "evaluation" which contains the evaluation results.
+In local_processing, run "evaluate_model.py", making sure parameters are consistent with previous steps. This will generate a new folder within "trained-results" named "evaluation" which contains the evaluation results.
 
 Next run "analyse_results.py" which will print the training and test error and generate a set of labeled images in "trained-results/evaluation/labeled" showing the original ground truth labels overlaid with the model prediction.
 
