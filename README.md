@@ -118,6 +118,8 @@ If you've made a mistake with your job parameters and the training doesn't crash
 
     $ gcloud ml-engine jobs cancel ${JOB_NAME}
     
+Note that the scale tier used by the cloud service (e.g. CPU / GPU) is defined in job_config/config.yaml in this repo. Adjust the "scaleTier" field to specify how the job will run. You will probably want to use "BASIC_GPU" in most cases for fast training, but for testing this code out you can just use "BASIC" so as not to incur the higher costs of GPU training on the cloud.
+    
 ## Usage - Evaluation and Analysis
 ### Getting your trained model
 
