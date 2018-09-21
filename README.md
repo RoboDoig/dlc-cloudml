@@ -1,7 +1,7 @@
 # dlc-cloudml
 Port to cloud-ml for tensorflow parts of DeepLabCut
 
-This is an adaptation of DeepLabCut: https://github.com/AlexEMG/DeepLabCut. All code is adapted from this original repository and this guide is also based on the documentation found there. I recommend checking out the original repo as well as the paper: rdcu.be/4Rep before using this code.
+This is an adaptation of DeepLabCut: https://github.com/AlexEMG/DeepLabCut. All code is adapted from this original repository and this guide is also based on the documentation found there. I recommend checking out the original repo as well as the paper: https://rdcu.be/4Rep before using this code.
 
 The code here is intended to be used where continuous access to a local GPU is not possible, CPU training is not feasible and use of a cloud VM is prohibitively expensive. Instead, computationally intensive parts of the DeepLabCut pipeline (model training) are shifted to Google cloud computing services through its job system. 
 
