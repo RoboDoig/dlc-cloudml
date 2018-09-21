@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 import os
+import cv2
 
 import local_processing.analysis_util.analysis_util as au
 from skimage.draw import circle
@@ -16,7 +17,7 @@ date = 'Sep6'
 shuffle = 1
 train_fraction = 0.95
 snapshot_index = 0
-video_name = 'AH0698x170601-9.mp4'
+video_name = 'AH0698x170601-10.mp4'
 pcutoff = -1
 dotsize = 4
 resnet = 50
@@ -33,6 +34,9 @@ def create_video(clip, data_frame):
     ny, nx, fps = clip.height(), clip.width(), clip.fps()
     n_frames = len(data_frame.index)
 
+    video = cv2.VideoWriter(os.path.join(base_folder, video_name.split('.')[0] + '-labeled.avi'),
+                            cv2.VideoWriter_fourcc(*"XVID"), fps, (nx, ny))
+
     for index in tqdm(range(n_frames)):
         image = clip.load_frame()
         for bp_index, bp in enumerate(body_parts_to_plot):
@@ -44,8 +48,11 @@ def create_video(clip, data_frame):
                 image[rr, cc, :] = colors[bp_index]
 
         frame = image
-        clip.save_frame(frame)
+        video.write(frame)
+        # clip.save_frame(frame)
 
+    cv2.destroyAllWindows()
+    video.release()
     clip.close()
 
 

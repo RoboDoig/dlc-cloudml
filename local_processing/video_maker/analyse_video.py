@@ -17,7 +17,7 @@ date = 'Sep6'
 shuffle = 1
 train_fraction = 0.95
 snapshot_index = 0
-video_name = 'AH0698x170601-4.mp4'
+video_name = 'AH0698x170601-10.mp4'
 frame_buffer = 10
 
 
