@@ -102,9 +102,9 @@ Now submit the training job:
     $  --runtime-version 1.9 \
     $  --region us-central1 \ 
     $  --config job_config/config.yaml \ 
-    $  -- 
-    $  --data_dir gs://${BUCKET}/test_model 
-    $  --weights_dir gs://${BUCKET}/models 
+    $  -- \
+    $  --data_dir gs://${BUCKET}/test_model \
+    $  --weights_dir gs://${BUCKET}/models \
     $  --log_dir gs://${BUCKET}/${JOB_NAME}
 
 If the training job has submitted successfully, you should be able to see it in the jobs viewer: https://console.cloud.google.com/mlengine/jobs. Click on "View Logs" to keep track of the job and see if any errors pop up. 
