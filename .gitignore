@@ -7,3 +7,5 @@ trainer/log/
 *.pyc
 *.HNB228-4-SHIRES
 *.ckpt
+local_processing/video_maker/make_labeled_video_cv.py
+local_processing/video_maker/make_labeled_video_cv.py

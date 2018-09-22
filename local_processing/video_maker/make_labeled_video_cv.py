@@ -5,7 +5,7 @@ import os
 import cv2
 
 import local_processing.analysis_util.analysis_util as au
-from skimage.draw import circle
+from skimage.draw import circle, line, bezier_curve
 import skvideo
 skvideo.setFFmpegPath('C:/Program Files/ffmpeg/bin/')
 from local_processing.video_maker.video_processor import VideoProcessorSK as vp
@@ -39,13 +39,22 @@ def create_video(clip, data_frame):
 
     for index in tqdm(range(n_frames)):
         image = clip.load_frame()
+        xs = []
+        ys = []
         for bp_index, bp in enumerate(body_parts_to_plot):
             if data_frame[scorer][bp]['likelihood'].values[index] > pcutoff:
                 xc = int(data_frame[scorer][bp]['x'].values[index])
+                xs.append(xc)
                 yc = int(data_frame[scorer][bp]['y'].values[index])
+                ys.append(yc)
 
                 rr, cc = circle(yc, xc, dotsize, shape=(ny, nx))
                 image[rr, cc, :] = colors[bp_index]
+
+        rr, cc = line(ys[1], xs[1], ys[2], xs[2])
+        image[rr, cc, :] = colors[bp_index]
+        rr, cc = line(ys[1], xs[1]-20, ys[2], xs[2]+20)
+        image[rr, cc, :] = colors[bp_index]
 
         frame = image
         video.write(frame)
