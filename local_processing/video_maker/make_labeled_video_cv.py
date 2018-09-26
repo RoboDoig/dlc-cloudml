@@ -17,7 +17,7 @@ date = 'Sep6'
 shuffle = 1
 train_fraction = 0.95
 snapshot_index = 0
-video_name = 'AH0698x170601-10.mp4'
+video_name = 'AH0698x170601-9.mp4'
 pcutoff = -1
 dotsize = 4
 resnet = 50
@@ -53,7 +53,7 @@ def create_video(clip, data_frame):
 
         rr, cc = line(ys[1], xs[1], ys[2], xs[2])
         image[rr, cc, :] = colors[bp_index]
-        rr, cc = line(ys[1], xs[1]-20, ys[2], xs[2]+20)
+        rr, cc = line(ys[1], xs[1]-20, ys[1], xs[1]+20)
         image[rr, cc, :] = colors[bp_index]
 
         frame = image

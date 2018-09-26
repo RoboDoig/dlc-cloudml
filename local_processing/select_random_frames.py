@@ -9,8 +9,8 @@ from skimage import io
 
 from local_processing import auxiliary_functions, frame_selection_tools
 
-task = 'pole-whisking'
-video_path = 'C:/Users/shires/DeepLabCutData/cell_01_video_tut'
+task = 'multi-whisker'
+video_path = 'C:/Users/shires/DeepLabCutData/multi_whisker/'
 video_type = '.mp4'
 filename = 'all'
 x1 = 0
@@ -21,7 +21,7 @@ start = 0
 stop = 1.0
 date = 'Sep6'
 cropping = False
-num_frames_to_pick = 2
+num_frames_to_pick = 3
 selection_algorithm = 'uniform'
 check_cropping = False
 

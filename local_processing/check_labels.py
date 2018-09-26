@@ -7,9 +7,12 @@ import matplotlib.pyplot as plt
 from local_processing import auxiliary_functions
 
 colormap = 'cool'
-body_parts = ['pole', 'whisker1', 'whisker2', 'whisker3', 'whisker4']
-task = 'pole-whisking'
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_tut/'
+body_parts = ['pole1',
+              'whisker_1_1', 'whisker_1_2', 'whisker_1_3', 'whisker_1_4',
+              'whisker_2_1', 'whisker_2_2', 'whisker_2_3', 'whisker_2_4',
+              'whisker_3_1', 'whisker_3_2', 'whisker_3_3', 'whisker_3_4']
+task = 'multi-whisker'
+base_folder = 'C:/Users/shires/DeepLabCutData/multi_whisker/'
 scorer = 'Andrew'
 image_type = '.png'
 scale = 1

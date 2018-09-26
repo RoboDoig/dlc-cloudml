@@ -3,11 +3,14 @@ import pandas as pd
 import os
 import sys
 
-task = 'pole-whisking'
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_tut/'
+task = 'multi-whisker'
+base_folder = 'C:/Users/shires/DeepLabCutData/multi_whisker/'
 scorer = 'Andrew'
 image_type = '.png'
-body_parts = ['pole', 'whisker1', 'whisker2', 'whisker3', 'whisker4']
+body_parts = ['pole1',
+              'whisker_1_1', 'whisker_1_2', 'whisker_1_3', 'whisker_1_4',
+              'whisker_2_1', 'whisker_2_2', 'whisker_2_3', 'whisker_2_4',
+              'whisker_3_1', 'whisker_3_2', 'whisker_3_3', 'whisker_3_4']
 invisible_boundary = 10
 
 
