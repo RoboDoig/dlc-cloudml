@@ -2,6 +2,7 @@ venv/
 test_data/
 test_job/
 trainer/log/
+local_processing/post_filtering/
 *.iml
 *.xml
 *.pyc

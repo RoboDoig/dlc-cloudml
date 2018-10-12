@@ -11,8 +11,8 @@ from tqdm import tqdm
 from skimage import io
 import skimage.color
 
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_3/'
-task = 'pole-whisking'
+base_folder = 'C:/Users/shires/DeepLabCutData/multi_whisker_2/'
+task = 'multi-whisker'
 date = 'Sep6'
 shuffles = [1]
 training_fraction = [0.95]

@@ -9,7 +9,7 @@ import scipy.io as sio
 
 from local_processing import auxiliary_functions
 
-base_folder = 'C:/Users/shires/DeepLabCutData/multi_whisker/'
+base_folder = 'C:/Users/shires/DeepLabCutData/multi_whisker_2/'
 task = 'multi-whisker'
 scorer = 'Andrew'
 date = 'Sep6'
@@ -18,7 +18,9 @@ training_fraction = [0.95]
 body_parts = ['pole1',
               'whisker_1_1', 'whisker_1_2', 'whisker_1_3', 'whisker_1_4',
               'whisker_2_1', 'whisker_2_2', 'whisker_2_3', 'whisker_2_4',
-              'whisker_3_1', 'whisker_3_2', 'whisker_3_3', 'whisker_3_4']
+              'whisker_3_1', 'whisker_3_2', 'whisker_3_3', 'whisker_3_4',
+              'whisker_4_1', 'whisker_4_2', 'whisker_4_3', 'whisker_4_4',
+              'whisker_5_1', 'whisker_5_2', 'whisker_5_3', 'whisker_5_4']
 
 
 def split_trials(trial_index, train_fraction=0.8):

@@ -10,7 +10,7 @@ from skimage import io
 from local_processing import auxiliary_functions, frame_selection_tools
 
 task = 'multi-whisker'
-video_path = 'C:/Users/shires/DeepLabCutData/multi_whisker/'
+video_path = 'C:/Users/shires/DeepLabCutData/multi_whisker_4/'
 video_type = '.mp4'
 filename = 'all'
 x1 = 0

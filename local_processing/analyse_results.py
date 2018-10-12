@@ -8,13 +8,13 @@ from local_processing import auxiliary_functions
 import matplotlib.pyplot as plt
 from skimage import io
 
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_3/'
-task = 'pole-whisking'
+base_folder = 'C:/Users/shires/DeepLabCutData/multi_whisker_2/'
+task = 'multi-whisker'
 date = 'Sep6'
 shuffles = [1]
 training_fraction = [0.95]
 scorer = 'Andrew'
-pcutoff = 0.1
+pcutoff = 0.3
 
 
 def analyse_results():

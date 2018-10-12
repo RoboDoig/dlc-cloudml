@@ -11,17 +11,21 @@ skvideo.setFFmpegPath('C:/Program Files/ffmpeg/bin/')
 from local_processing.video_maker.video_processor import VideoProcessorSK as vp
 import matplotlib.pyplot as plt
 
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_3/'
-task = 'pole-whisking'
+base_folder = 'C:/Users/shires/DeepLabCutData/multi_whisker/'
+task = 'multi-whisker'
 date = 'Sep6'
 shuffle = 1
 train_fraction = 0.95
 snapshot_index = 0
-video_name = 'AH0698x170601-9.mp4'
-pcutoff = -1
+video_name = '139.mp4'
+pcutoff = 0.3
 dotsize = 4
 resnet = 50
-snapshot = 400000
+snapshot = 300000
+
+# for ts plotting
+pick_bodypart = 'whisker_2_4'
+def_color = [255, 0, 0]
 
 
 def create_video(clip, data_frame):
@@ -37,6 +41,8 @@ def create_video(clip, data_frame):
     video = cv2.VideoWriter(os.path.join(base_folder, video_name.split('.')[0] + '-labeled.avi'),
                             cv2.VideoWriter_fourcc(*"XVID"), fps, (nx, ny))
 
+    p_ind = []
+    x_p = []
     for index in tqdm(range(n_frames)):
         image = clip.load_frame()
         xs = []
@@ -51,10 +57,11 @@ def create_video(clip, data_frame):
                 rr, cc = circle(yc, xc, dotsize, shape=(ny, nx))
                 image[rr, cc, :] = colors[bp_index]
 
-        rr, cc = line(ys[1], xs[1], ys[2], xs[2])
-        image[rr, cc, :] = colors[bp_index]
-        rr, cc = line(ys[1], xs[1]-20, ys[1], xs[1]+20)
-        image[rr, cc, :] = colors[bp_index]
+        p_ind.append(int((index / n_frames) * nx))
+        x_p.append(ny - data_frame[scorer][pick_bodypart]['x'].values[index])
+        for x, xp in enumerate(x_p):
+            rr, cc = circle(int(xp) + 100, p_ind[x], 2, shape=(ny, nx))
+            image[rr, cc, :] = def_color
 
         frame = image
         video.write(frame)

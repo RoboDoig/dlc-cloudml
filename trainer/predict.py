@@ -6,7 +6,7 @@ from trainer.nnet.net_factory import pose_net
 
 
 def setup_pose_prediction(cfg):
-    inputs = tf.placeholder(tf.float32, shape=[cfg.batch_size   , None, None, 3])
+    inputs = tf.placeholder(tf.float32, shape=[cfg.batch_size, None, None, 3])
 
     net_heads = pose_net(cfg).test(inputs)
     outputs = [net_heads['part_prob']]

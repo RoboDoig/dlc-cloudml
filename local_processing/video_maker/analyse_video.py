@@ -11,13 +11,13 @@ from skimage.util import img_as_ubyte
 from tqdm import tqdm
 import local_processing.analysis_util.analysis_util as au
 
-base_folder = 'C:/Users/shires/DeepLabCutData/cell_01_video_3/'
-task = 'pole-whisking'
+base_folder = 'C:/Users/shires/DeepLabCutData/multi_whisker_2/'
+task = 'multi-whisker'
 date = 'Sep6'
 shuffle = 1
 train_fraction = 0.95
 snapshot_index = 0
-video_name = 'AH0698x170601-10.mp4'
+video_name = '139.mp4'
 frame_buffer = 10
 
 
@@ -98,7 +98,7 @@ def analyse_video():
     data_machine = pd.DataFrame(predict_data[:n_frames, :], columns=pd_index, index=range(n_frames))
     # data_machine.to_csv(os.path.join(base_folder, scorer + video_name.split('.')[0] + '.csv'))
     data_machine.to_hdf(os.path.join(base_folder, scorer + video_name.split('.')[0] + '.h5'),
-                        'df_with_missin', format='table', mode='w')
+                        'df_with_missing', format='table', mode='w')
 
     with open(os.path.join(base_folder, scorer + video_name.split('.')[0] + '-metadata' + '.pickle'), 'wb') as f:
         pickle.dump(metadata, f, pickle.HIGHEST_PROTOCOL)
