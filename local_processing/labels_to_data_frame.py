@@ -3,16 +3,18 @@ import pandas as pd
 import os
 import sys
 
-task = 'multi-whisker'
-base_folder = 'C:/Users/shires/DeepLabCutData/multi_whisker_2/'
+task = 'multi-whisker-1x2'
+base_folder = 'D:/Andrew/AH08861015181x2/dataset-selection/'
 scorer = 'Andrew'
 image_type = '.png'
-body_parts = ['pole1',
+body_parts = ['pole_1', 'pole_2',
               'whisker_1_1', 'whisker_1_2', 'whisker_1_3', 'whisker_1_4',
+              'whisker_1_5', 'whisker_1_6', 'whisker_1_7', 'whisker_1_8',
+              'whisker_1_9', 'whisker_1_10', 'whisker_1_11', 'whisker_1_12',
               'whisker_2_1', 'whisker_2_2', 'whisker_2_3', 'whisker_2_4',
-              'whisker_3_1', 'whisker_3_2', 'whisker_3_3', 'whisker_3_4',
-              'whisker_4_1', 'whisker_4_2', 'whisker_4_3', 'whisker_4_4',
-              'whisker_5_1', 'whisker_5_2', 'whisker_5_3', 'whisker_5_4']
+              'whisker_2_5', 'whisker_2_6', 'whisker_2_7', 'whisker_2_8',
+              'whisker_2_9', 'whisker_2_10', 'whisker_2_11', 'whisker_2_12',
+              'whisker_2_13', 'whisker_2_14', 'whisker_2_15', 'whisker_2_16']
 invisible_boundary = 10
 
 

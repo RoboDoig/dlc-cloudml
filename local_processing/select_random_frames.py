@@ -9,19 +9,19 @@ from skimage import io
 
 from local_processing import auxiliary_functions, frame_selection_tools
 
-task = 'multi-whisker'
-video_path = 'C:/Users/shires/DeepLabCutData/multi_whisker_4/'
+task = 'multi-whisker-1x2'
+video_path = 'D:/Andrew/AH08861015181x2/dataset-selection/'
 video_type = '.mp4'
 filename = 'all'
 x1 = 0
 x2 = 0
 y1 = 0
 y2 = 0
-start = 0
-stop = 1.0
-date = 'Sep6'
+start = 0.15
+stop = 0.8
+date = 'Oct16'
 cropping = False
-num_frames_to_pick = 3
+num_frames_to_pick = 70
 selection_algorithm = 'uniform'
 check_cropping = False
 
@@ -35,7 +35,7 @@ def select_frames():
         auxiliary_functions.attempt_to_make_folder(base_folder)
         videos = auxiliary_functions.get_video_list(filename, video_path, video_type)
         for vindex, video in enumerate(videos):
-            print("Loading ", video, '# ', str(vindex), ' of ', str(len(videos)))
+            print("Loading ", video, '# ', str(vindex + 1), ' of ', str(len(videos)))
             clip = VideoFileClip(os.path.join(video_path, video))
             # print("Duration of video [s], ", clip.duration, "fps, ", clip.fps,
             #       "Cropped frame dimensions: ", clip.size)
