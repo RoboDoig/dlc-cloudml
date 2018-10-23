@@ -1,9 +1,8 @@
 import tensorflow as tf
 import argparse
-import os
 import sys
 
-from local_processing.video_maker import analyse_video
+from local_processing import analyse_video
 
 FLAGS = None
 
