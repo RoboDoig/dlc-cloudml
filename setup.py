@@ -6,7 +6,8 @@ REQUIRED_PACKAGES = ['easydict>=1.7',
                      'tqdm>=4.25.0',
                      'scikit-image>=0.14.0',
                      'tables>=3.4.4',
-                     'pandas>=0.23.4']
+                     'pandas>=0.23.4',
+                     'moviepy>=0.2.3.5']
 
 setup(
     name='trainer',
