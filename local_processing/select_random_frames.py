@@ -9,8 +9,8 @@ from skimage import io
 
 from local_processing import auxiliary_functions, frame_selection_tools
 
-task = 'multi-whisker-1x2'
-video_path = 'D:/Andrew/AH08861015181x2/dataset-selection/'
+task = 'multi-whisker-2x3'
+video_path = 'D:/Andrew/AH08861015182x3/dataset-selection/'
 video_type = '.mp4'
 filename = 'all'
 x1 = 0

@@ -8,9 +8,9 @@ from local_processing import auxiliary_functions
 import matplotlib.pyplot as plt
 from skimage import io
 
-base_folder = 'C:/Users/shires/DeepLabCutData/multi_whisker_2/'
-task = 'multi-whisker'
-date = 'Sep6'
+base_folder = 'D:/Andrew/AH08861015181x2/dataset-selection/'
+task = 'multi-whisker-1x2'
+date = 'Oct16'
 shuffles = [1]
 training_fraction = [0.95]
 scorer = 'Andrew'

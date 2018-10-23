@@ -11,15 +11,6 @@ from skimage.util import img_as_ubyte
 from tqdm import tqdm
 import local_processing.analysis_util.analysis_util as au
 
-# base_folder = 'C:/Users/shires/DeepLabCutData/multi_whisker_2/'
-# task = 'multi-whisker'
-# date = 'Sep6'
-# shuffle = 1
-# train_fraction = 0.95
-# snapshot_index = 0
-# video_name = '139.mp4'
-# frame_buffer = 10
-
 
 def analyse_video(FLAGS):
     experiment_name = FLAGS.task + FLAGS.date + '-trainset' + str(
@@ -29,16 +20,15 @@ def analyse_video(FLAGS):
     # get available snapshots
     snapshots = np.array([
         fn.split('.')[0] for fn in os.listdir(
-            os.path.join(
-                FLAGS.snapshot_dir, 'trained-results'
-            )
+            FLAGS.snapshot_dir
         ) if 'index' in fn
     ])
     increasing_indices = np.argsort([int(m.split('-')[1]) for m in snapshots])
     snapshots = snapshots[increasing_indices]
 
     # setup prediction over images
-    cfg['init_weights'] = os.path.join(FLAGS.snapshot_dir, 'trained-results/' + snapshots[FLAGS.snapshot_index])
+    cfg['init_weights'] = os.path.join(FLAGS.snapshot_dir, snapshots[FLAGS.snapshot_index])
+    print(cfg['init_weights'])
 
     training_iterations = (cfg['init_weights'].split('/')[-1].split('-')[-1])
 

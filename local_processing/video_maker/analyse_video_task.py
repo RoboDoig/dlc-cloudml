@@ -17,22 +17,22 @@ if __name__ == '__main__':
     parser.add_argument(
         '--data_dir',
         help='Directory to find training data',
-        default='C:/Users/shires/DeepLabCutData/multi_whisker_2/'
+        default='D:/Andrew/AH08861015181x2/dataset-selection/'
     )
     parser.add_argument(
         '--snapshot_dir',
         help='Directory to find training data',
-        default='C:/Users/shires/DeepLabCutData/multi_whisker_2/'
+        default='D:/Andrew/AH08861015181x2/dataset-selection/trained-results/'
     )
     parser.add_argument(
         '--task',
         help='Task name',
-        default='multi-whisker'
+        default='multi-whisker-1x2'
     )
     parser.add_argument(
         '--date',
         help='Data date',
-        default='Sep6'
+        default='Oct16'
     )
     parser.add_argument(
         '--train_fraction',
@@ -51,8 +51,8 @@ if __name__ == '__main__':
     )
     parser.add_argument(
         '--video_name',
-        help='Directory to save logs',
-        default='2.mp4'
+        help='Video to process',
+        default='288.mp4'
     )
     parser.add_argument(
         '--frame_buffer',
