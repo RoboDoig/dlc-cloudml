@@ -18,6 +18,7 @@ def analyse_video(FLAGS):
     cfg = load_config(os.path.join(FLAGS.data_dir, experiment_name, 'test/pose_cfg.yaml'))
 
     # get available snapshots
+    print(FLAGS.snapshot_dir)
     snapshots = np.array([
         fn.split('.')[0] for fn in os.listdir(
             FLAGS.snapshot_dir
