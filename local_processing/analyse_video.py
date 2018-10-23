@@ -18,17 +18,17 @@ def analyse_video(FLAGS):
     cfg = load_config(os.path.join(FLAGS.data_dir, experiment_name, 'test/pose_cfg.yaml'))
 
     # get available snapshots
-    print(FLAGS.snapshot_dir)
-    snapshots = np.array([
-        fn.split('.')[0] for fn in os.listdir(
-            FLAGS.snapshot_dir
-        ) if 'index' in fn
-    ])
-    increasing_indices = np.argsort([int(m.split('-')[1]) for m in snapshots])
-    snapshots = snapshots[increasing_indices]
+    # print(FLAGS.snapshot_dir)
+    # snapshots = np.array([
+    #     fn.split('.')[0] for fn in os.listdir(
+    #         FLAGS.snapshot_dir
+    #     ) if 'index' in fn
+    # ])
+    # increasing_indices = np.argsort([int(m.split('-')[1]) for m in snapshots])
+    # snapshots = snapshots[increasing_indices]
 
     # setup prediction over images
-    cfg['init_weights'] = os.path.join(FLAGS.snapshot_dir, snapshots[FLAGS.snapshot_index])
+    cfg['init_weights'] = os.path.join(FLAGS.snapshot_dir, 'snapshot-' + str(FLAGS.snapshot_index))
     print(cfg['init_weights'])
 
     training_iterations = (cfg['init_weights'].split('/')[-1].split('-')[-1])

@@ -46,7 +46,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--snapshot_index',
         help='Snapshot index',
-        default=0
+        default=950000
     )
     parser.add_argument(
         '--video_name',
