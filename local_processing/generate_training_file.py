@@ -9,20 +9,13 @@ import scipy.io as sio
 
 from local_processing import auxiliary_functions
 
-base_folder = 'D:/Andrew/AH08861015181x2/dataset-selection/'
-task = 'multi-whisker-1x2'
+base_folder = 'Z:/Data/BarthAirPuff/'
+task = 'air-puff'
 scorer = 'Andrew'
-date = 'Oct16'
+date = 'Dec7'
 shuffles = [1]
 training_fraction = [0.95]
-body_parts = ['pole_1', 'pole_2',
-              'whisker_1_1', 'whisker_1_2', 'whisker_1_3', 'whisker_1_4',
-              'whisker_1_5', 'whisker_1_6', 'whisker_1_7', 'whisker_1_8',
-              'whisker_1_9', 'whisker_1_10', 'whisker_1_11', 'whisker_1_12',
-              'whisker_2_1', 'whisker_2_2', 'whisker_2_3', 'whisker_2_4',
-              'whisker_2_5', 'whisker_2_6', 'whisker_2_7', 'whisker_2_8',
-              'whisker_2_9', 'whisker_2_10', 'whisker_2_11', 'whisker_2_12',
-              'whisker_2_13', 'whisker_2_14', 'whisker_2_15', 'whisker_2_16']
+body_parts = ['tip11', 'tip21', 'tip31']
 
 
 def split_trials(trial_index, train_fraction=0.8):
@@ -87,7 +80,7 @@ def generate_base_config(path):
                  'intermediate_supervision': False,
                  'intermediate_supervision_layer': 12,
                  'max_input_size': 1000,
-                 'multi_step': [[0.005, 10000], [0.02, 430000], [0.002, 730000], [0.001, 1030000]],
+                 'multi_step': [[0.001, 10000], [0.002, 430000], [0.002, 730000], [0.001, 1030000]],
                  'display_iters': 1000,
                  'save_iters': 50000}
 

@@ -11,20 +11,20 @@ skvideo.setFFmpegPath('C:/Program Files/ffmpeg/bin/')
 from local_processing.video_maker.video_processor import VideoProcessorSK as vp
 import matplotlib.pyplot as plt
 
-base_folder = 'C:/Users/shires/DeepLabCutData/multi_whisker/'
-task = 'multi-whisker'
-date = 'Sep6'
+base_folder = 'Z:/Data/BarthAirPuff/'
+task = 'air-puff'
+date = 'Dec7'
 shuffle = 1
 train_fraction = 0.95
 snapshot_index = 0
-video_name = '139.mp4'
+video_name = '9 psi.MOV'
 pcutoff = 0.3
 dotsize = 4
 resnet = 50
-snapshot = 300000
+snapshot = 600000
 
 # for ts plotting
-pick_bodypart = 'whisker_2_4'
+pick_bodypart = 'tip11'
 def_color = [255, 0, 0]
 
 
@@ -58,7 +58,7 @@ def create_video(clip, data_frame):
                 image[rr, cc, :] = colors[bp_index]
 
         p_ind.append(int((index / n_frames) * nx))
-        x_p.append(ny - data_frame[scorer][pick_bodypart]['x'].values[index])
+        x_p.append(ny - data_frame[scorer][pick_bodypart]['y'].values[index])
         for x, xp in enumerate(x_p):
             rr, cc = circle(int(xp) + 100, p_ind[x], 2, shape=(ny, nx))
             image[rr, cc, :] = def_color

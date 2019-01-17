@@ -3,18 +3,11 @@ import pandas as pd
 import os
 import sys
 
-task = 'multi-whisker-1x2'
-base_folder = 'D:/Andrew/AH08861015181x2/dataset-selection/'
+task = 'air-puff'
+base_folder = 'Z:/Data/BarthAirPuff/'
 scorer = 'Andrew'
 image_type = '.png'
-body_parts = ['pole_1', 'pole_2',
-              'whisker_1_1', 'whisker_1_2', 'whisker_1_3', 'whisker_1_4',
-              'whisker_1_5', 'whisker_1_6', 'whisker_1_7', 'whisker_1_8',
-              'whisker_1_9', 'whisker_1_10', 'whisker_1_11', 'whisker_1_12',
-              'whisker_2_1', 'whisker_2_2', 'whisker_2_3', 'whisker_2_4',
-              'whisker_2_5', 'whisker_2_6', 'whisker_2_7', 'whisker_2_8',
-              'whisker_2_9', 'whisker_2_10', 'whisker_2_11', 'whisker_2_12',
-              'whisker_2_13', 'whisker_2_14', 'whisker_2_15', 'whisker_2_16']
+body_parts = ['tip11', 'tip21', 'tip31']
 invisible_boundary = 10
 
 

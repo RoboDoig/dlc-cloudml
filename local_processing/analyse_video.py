@@ -90,7 +90,7 @@ def analyse_video(FLAGS):
     data_machine.to_hdf(os.path.join(FLAGS.data_dir, scorer + FLAGS.video_name.split('.')[0] + '.h5'),
                         'df_with_missing', format='table', mode='w')
 
-    with open(os.path.join(FLAGS.base_folder, scorer + FLAGS.video_name.split('.')[0] + '-metadata' + '.pickle'), 'wb') as f:
+    with open(os.path.join(FLAGS.data_dir, scorer + FLAGS.video_name.split('.')[0] + '-metadata' + '.pickle'), 'wb') as f:
         pickle.dump(metadata, f, pickle.HIGHEST_PROTOCOL)
 
 #

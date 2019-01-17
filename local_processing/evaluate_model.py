@@ -11,9 +11,9 @@ from tqdm import tqdm
 from skimage import io
 import skimage.color
 
-base_folder = 'D:/Andrew/AH08861015181x2/dataset-selection/'
-task = 'multi-whisker-1x2'
-date = 'Oct16'
+base_folder = 'Z:/Data/BarthAirPuff/'
+task = 'air-puff'
+date = 'Dec7'
 shuffles = [1]
 training_fraction = [0.95]
 scorer = 'Andrew'

@@ -9,19 +9,19 @@ from skimage import io
 
 from local_processing import auxiliary_functions, frame_selection_tools
 
-task = 'multi-whisker-2x3'
-video_path = 'D:/Andrew/AH08861015182x3/dataset-selection/'
-video_type = '.mp4'
+task = 'air-puff'
+video_path = 'Z:/Data/BarthAirPuff'
+video_type = '.MOV'
 filename = 'all'
 x1 = 0
 x2 = 0
 y1 = 0
 y2 = 0
-start = 0.15
-stop = 0.8
-date = 'Oct16'
+start = 0
+stop = 1
+date = 'Dec7'
 cropping = False
-num_frames_to_pick = 70
+num_frames_to_pick = 50
 selection_algorithm = 'uniform'
 check_cropping = False
 
