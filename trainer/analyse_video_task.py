@@ -16,22 +16,22 @@ if __name__ == '__main__':
     parser.add_argument(
         '--data_dir',
         help='Directory to find training data',
-        default='Z:/Data/BarthAirPuff/'
+        default='/Volumes/imag2019/DATA/TeamAwesome/190806_TAMS/BehaviorVids'
     )
     parser.add_argument(
-        '--snapshot_dir',
+        '--snapshot_name',
         help='Directory to find training data',
-        default='Z:/Data/BarthAirPuff/trained-results/'
+        default='snapshot-100000.index'
     )
     parser.add_argument(
         '--task',
         help='Task name',
-        default='air-puff'
+        default='run-wheel-2p'
     )
     parser.add_argument(
         '--date',
         help='Data date',
-        default='Dec7'
+        default='Aug6'
     )
     parser.add_argument(
         '--train_fraction',
@@ -51,7 +51,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--video_name',
         help='Video to process',
-        default='1 psi.MOV'
+        default='TamsMcD190806_1.avi'
     )
     parser.add_argument(
         '--frame_buffer',

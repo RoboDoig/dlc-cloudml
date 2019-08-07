@@ -11,9 +11,9 @@ from tqdm import tqdm
 from skimage import io
 import skimage.color
 
-base_folder = 'Z:/Data/BarthAirPuff/'
-task = 'air-puff'
-date = 'Dec7'
+base_folder = '/Volumes/imag2019/DATA/TeamAwesome/190806_TAMS/BehaviorVids'
+task = 'run-wheel-2p'
+date = 'Aug6'
 shuffles = [1]
 training_fraction = [0.95]
 scorer = 'Andrew'
