@@ -21,7 +21,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--snapshot_name',
         help='Directory to find training data',
-        default='snapshot-100000.index'
+        default='snapshot-100000'
     )
     parser.add_argument(
         '--task',
