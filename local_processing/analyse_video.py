@@ -26,10 +26,10 @@ def analyse_video(FLAGS):
     #])
     #increasing_indices = np.argsort([int(m.split('-')[1]) for m in snapshots])
     #snapshots = snapshots[increasing_indices]
-    snapshots = ['trained-results/', FLAGS.snapshot_name]
+    snapshot = os.path.join(FLAGS.data_dir, 'trained-results/', FLAGS.snapshot_name)
 
     # setup prediction over images
-    cfg['init_weights'] = os.path.join(FLAGS.data_dir, snapshots[FLAGS.snapshot_index])
+    cfg['init_weights'] = snapshot
     print(cfg['init_weights'])
 
     training_iterations = (cfg['init_weights'].split('/')[-1].split('-')[-1])
