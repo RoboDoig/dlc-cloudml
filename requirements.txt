@@ -2,7 +2,7 @@ numpy==1.14.5
 scikit_video==1.1.10
 tqdm==4.25.0
 easydict==1.8
-tensorflow==1.10.0
+tensorflow==2.6.4
 imageio==2.4.1
 scipy==1.1.0
 requests==2.19.1
